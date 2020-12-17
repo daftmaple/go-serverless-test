@@ -5,8 +5,8 @@ import (
 	"net/http"
 )
 
-// Handler ...
-func Handler(w http.ResponseWriter, r *http.Request) {
+// ParamsHandler ...
+func ParamsHandler(w http.ResponseWriter, r *http.Request) {
 	for name, headers := range r.Header {
 		for _, h := range headers {
 			fmt.Fprintf(w, "Header %v: %v\n", name, h)
