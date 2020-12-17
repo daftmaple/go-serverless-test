@@ -1,5 +1,8 @@
 {
-  "functions": {
-    "includeFiles": "api/**"
-  }
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/index.html"
+    }
+  ]
 }
