@@ -41,6 +41,9 @@ func PostHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// Set header
+	w.Header().Set("Content-Type", "application/json")
+
 	// Increment payload id
 	payload.ID++
 
