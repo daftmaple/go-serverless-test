@@ -1,5 +1,5 @@
 build:
-	go build -o a.out
+	go build -mod vendor -o a.out
 
 all:
 	build

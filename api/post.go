@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/go-playground/validator/v10"
 )
 
 // Payload ...
@@ -36,6 +38,13 @@ func PostHandler(w http.ResponseWriter, r *http.Request) {
 
 	payload := &Payload{}
 	err = json.Unmarshal(body, payload)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+
+	// Validate payload
+	err = validator.New().Struct(payload)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
